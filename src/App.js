@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import RepoList from './RepoList'
 import UserInput from './UserInput'
 import './App.css'
@@ -7,6 +7,9 @@ const fetchRepositories = async (userName) => {
     return fetch(`https://api.github.com/users/${userName}/repos`)
         .then((res) => {
             if (!res.ok) {
+                if (res.status === 404) {
+                    throw new Error('User not found.')
+                }
                 throw new Error('Connection problem.')
             }
             return res.json()
@@ -27,6 +30,7 @@ const App = () => {
         const repositories = await fetchRepositories(userName)
         if (!repositories.error) {
             setRepositories(repositories)
+            error && setError(null)
         }
         else {
             setError(repositories.error)

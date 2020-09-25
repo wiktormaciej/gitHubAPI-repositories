@@ -28,9 +28,9 @@ const BranchesList = (props) => {
             }
             setIsLoadingBranches(false)
         })
-    }, [])
+    }, [repository, error])
     if (isLoadingBranches) return <span>Loading. . .</span>
-    if (error) return <div className="error">Error: {error.message}</div>
+    if (error) return <div className="error">{error.message}</div>
     if (!branches || !branches.length) return <span>No branches found.</span>
     return (
         <div className='branches-list'>
@@ -62,7 +62,7 @@ const RepoBar = (props) => {
 const RepoList = (props) => {
     const { repositories, isLoading, error } = props
     if (isLoading) return (<div> Loading. . .</div>)
-    if (error) return (<div className="error">  Error: {error.message}  </div>)
+    if (error) return (<div className="error"> {error.message}  </div>)
     if (!repositories || !repositories.length) return <div>No public repositories found.</div>
 
     return (
@@ -73,6 +73,7 @@ const RepoList = (props) => {
             </div>
             {repositories.map((repository, Id) => {
                 if (!repository.fork) return (<RepoBar key={'repo' + Id} repository={repository} />)
+                return null
             })}
         </div>
     )
