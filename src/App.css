@@ -1,0 +1,115 @@
+body,
+html {
+  margin: 0px;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #24292e;
+  box-sizing: border-box;
+}
+#root {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 2rem;
+}
+.repo-list {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+  padding: 1rem;
+}
+.repo-bar {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  position: relative;
+}
+.repo-list-header {
+  display: flex;
+}
+
+.repo-list-header-left,
+.repo-bar-left {
+  display: block;
+  flex: 2;
+  padding-left: 2rem;
+}
+.repo-list-header-right,
+.repo-bar-right {
+  flex: 4;
+  padding-left: 3rem;
+}
+.repo-list-header {
+  font-weight: 600;
+}
+.repo-name {
+  margin: 0px;
+  color: #0366d6;
+}
+.commit-sha,
+.repo-id {
+  font-style: italic;
+}
+.branch-bar {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+}
+.branch-name {
+  flex: 1;
+  display: inline-block;
+  font: 18px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  color: #0366d6;
+  background-color: #eaf5ff;
+  border-radius: 6px;
+}
+.commit-sha {
+  flex: 5;
+  font-size: 14px;
+  padding-left: 1rem;
+}
+.user-input {
+  margin: 1rem auto;
+}
+.user-input-form {
+  display: flex;
+}
+.user-input-field {
+  font-size: 1.5rem;
+  border: 0;
+  border-bottom: 2px gray solid;
+  padding: 5px;
+  margin: 0px 5px;
+  outline: none;
+}
+.user-input-submit {
+  font-size: 2rem;
+  border-radius: 50%;
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 0px 10px;
+  outline: none;
+  cursor: pointer;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-input-submit:hover {
+  color: lightgray;
+}
+.error {
+  color: darkred;
+}
+
+@media only screen and (max-width: 800px) {
+  .repo-bar {
+    flex-direction: column;
+  }
+  .repo-list-header {
+    display: none;
+  }
+}
